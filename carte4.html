@@ -1,0 +1,896 @@
+
+
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Christophe Birthday Experience</title>
+
+<style>
+
+  
+  /* INFORMATIONS FETE ANIMATION */
+
+.info-fete p{
+animation:apparitionInfo 1s ease forwards;
+opacity:0;
+}
+
+.info-fete p:nth-child(1){
+animation-delay:.2s;
+}
+
+.info-fete p:nth-child(2){
+animation-delay:.4s;
+}
+
+.info-fete p:nth-child(3){
+animation-delay:.6s;
+}
+
+.info-fete p:nth-child(4){
+animation-delay:.8s;
+}
+
+.info-fete p:nth-child(5){
+animation-delay:1s;
+}
+
+.info-fete p:nth-child(6){
+animation-delay:1.2s;
+}
+
+
+@keyframes apparitionInfo{
+
+from{
+opacity:0;
+transform:translateX(-50px);
+}
+
+to{
+opacity:1;
+transform:translateX(0);
+}
+
+}
+
+
+
+/* LUMIERE QUI PASSE */
+
+.info-fete{
+position:relative;
+overflow:hidden;
+}
+
+
+.info-fete::before{
+
+content:"";
+
+position:absolute;
+
+top:0;
+left:-120%;
+
+width:80%;
+height:100%;
+
+background:linear-gradient(
+120deg,
+transparent,
+rgba(229,9,20,.4),
+transparent
+);
+
+animation:passageLumiere 5s infinite;
+
+}
+
+
+@keyframes passageLumiere{
+
+0%{
+left:-120%;
+}
+
+40%{
+left:120%;
+}
+
+100%{
+left:120%;
+}
+
+}
+
+
+
+/* ANIMATION DES EMOJIS */
+
+.info-fete p::first-letter{
+
+animation:emojiGlow 2s infinite;
+
+}
+
+
+@keyframes emojiGlow{
+
+0%{
+text-shadow:0 0 5px red;
+}
+
+50%{
+text-shadow:0 0 20px gold;
+}
+
+100%{
+text-shadow:0 0 5px red;
+}
+
+}
+
+
+
+/* CARTE QUI RESPIRE */
+
+.info-fete{
+
+animation:respiration 4s infinite;
+
+}
+
+
+@keyframes respiration{
+
+0%{
+box-shadow:0 0 30px rgba(229,9,20,.3);
+}
+
+50%{
+box-shadow:0 0 60px rgba(229,9,20,.7);
+}
+
+100%{
+box-shadow:0 0 30px rgba(229,9,20,.3);
+}
+
+}
+
+
+  /* LIEUX DE RECEPTION STYLE CINEMA */
+
+.lieux-container{
+display:flex;
+justify-content:center;
+gap:40px;
+flex-wrap:wrap;
+margin-top:40px;
+}
+
+
+.lieu-card{
+
+width:330px;
+height:420px;
+background:#050505;
+
+border-radius:15px;
+
+overflow:hidden;
+
+position:relative;
+
+border:1px solid rgba(255,215,0,0.5);
+
+box-shadow:
+0 0 30px rgba(229,9,20,0.4);
+
+transition:.5s;
+
+animation:apparition 1.5s ease;
+
+}
+
+
+.lieu-card:hover{
+
+transform:translateY(-15px) scale(1.05);
+
+box-shadow:
+0 0 50px red,
+0 0 80px rgba(255,215,0,.4);
+
+}
+
+
+
+/* NUMERO */
+
+.numero{
+
+position:absolute;
+
+top:15px;
+left:20px;
+
+font-size:80px;
+
+font-family:'Cinzel';
+
+color:white;
+
+opacity:.9;
+
+z-index:2;
+
+}
+
+
+
+/* IMAGE */
+
+.lieu-card img{
+
+width:100%;
+height:220px;
+
+object-fit:cover;
+
+filter:brightness(.75);
+
+transition:.6s;
+
+}
+
+
+.lieu-card:hover img{
+
+transform:scale(1.1);
+
+filter:brightness(1);
+
+}
+
+
+
+/* TEXTE */
+
+.lieu-info{
+
+padding:20px;
+
+text-align:center;
+
+}
+
+
+
+.lieu-info h3{
+
+font-size:25px;
+
+color:#e50914;
+
+font-family:'Cinzel';
+
+margin-bottom:10px;
+
+}
+
+
+
+.lieu-info p{
+
+font-size:16px;
+
+color:#ddd;
+
+}
+
+
+
+/* BOUTON */
+
+.itineraire{
+
+display:inline-block;
+
+margin-top:20px;
+
+padding:12px 30px;
+
+border-radius:30px;
+
+background:white;
+
+color:black;
+
+font-weight:bold;
+
+text-decoration:none;
+
+transition:.4s;
+
+}
+
+
+.itineraire:hover{
+
+background:#e50914;
+
+color:white;
+
+transform:scale(1.1);
+
+}
+
+
+
+@keyframes apparition{
+
+from{
+
+opacity:0;
+
+transform:translateY(80px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial, sans-serif;
+}
+
+body{
+background:#000;
+color:white;
+overflow-x:hidden;
+}
+
+/* INTRO NETFLIX */
+.intro{
+position:fixed;
+inset:0;
+background:#000;
+display:flex;
+justify-content:center;
+align-items:center;
+z-index:10000;
+overflow:hidden;
+animation:fadeOut 5s forwards;
+}
+
+.netflix-logo{
+position:relative;
+display:flex;
+justify-content:center;
+align-items:center;
+}
+
+.n{
+font-size:40vw;
+font-weight:900;
+font-family:Arial Black;
+color:#e50914;
+text-shadow:
+0 0 40px red,
+0 0 100px red,
+0 0 160px rgba(229,9,20,0.9);
+animation:zoomIn 2.5s ease-out;
+}
+
+.shine{
+position:absolute;
+top:0;
+left:-120%;
+width:60%;
+height:100%;
+background:linear-gradient(120deg,transparent,rgba(255,255,255,0.7),transparent);
+transform:skewX(-20deg);
+animation:shineMove 2.8s ease-in-out 1s forwards;
+}
+
+/* ANIM INTRO */
+@keyframes zoomIn{
+0%{transform:scale(0.2);opacity:0;filter:blur(10px);}
+60%{transform:scale(1.1);opacity:1;filter:blur(0);}
+100%{transform:scale(1);opacity:1;}
+}
+
+@keyframes shineMove{
+0%{left:-120%;}
+100%{left:120%;}
+}
+
+@keyframes fadeOut{
+0%{opacity:1;}
+80%{opacity:1;}
+100%{opacity:0;visibility:hidden;}
+}
+
+/* HEADER */
+header{
+height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+flex-direction:column;
+text-align:center;
+background:linear-gradient(rgba(0,0,0,.4),#000),url("");
+background-size:cover;
+background-position:center;;
+}
+
+header h1{
+font-size:65px;
+animation:pulse 3s infinite;
+}
+
+@keyframes pulse{
+0%{transform:scale(1);}
+50%{transform:scale(1.05);}
+100%{transform:scale(1);}
+}
+
+header p{
+font-size:30px;
+margin-top:20px;
+}
+
+.btn{
+margin-top:40px;
+padding:18px 45px;
+background:#e50914;
+border:none;
+color:white;
+font-size:20px;
+border-radius:5px;
+cursor:pointer;
+transition:.4s;
+}
+
+.btn:hover{
+background:white;
+color:black;
+transform:scale(1.1);
+}
+
+/* SECTIONS */
+section{
+padding:80px 10%;
+}
+
+.titre{
+text-align:center;
+font-size:45px;
+color:#e50914;
+margin-bottom:40px;
+}
+
+.card{
+background:#141414;
+padding:40px;
+border-radius:20px;
+border:1px solid #e50914;
+box-shadow:0 0 40px rgba(229,9,20,.3);
+animation:arrive 2s;
+}
+
+.card p{
+font-size:22px;
+line-height:1.8;
+text-align:center;
+}
+
+@keyframes arrive{
+from{opacity:0;transform:translateY(80px);}
+to{opacity:1;transform:translateY(0);}
+}
+
+/* COMPTEUR */
+#compteur{
+text-align:center;
+font-size:40px;
+color:#e50914;
+font-weight:bold;
+margin-top:30px;
+}
+
+/* GALERIE */
+.galerie{
+display:flex;
+justify-content:center;
+gap:30px;
+flex-wrap:wrap;
+}
+
+.galerie img{
+width:300px;
+height:250px;
+object-fit:cover;
+border-radius:15px;
+border:3px solid #e50914;
+transition:.5s;
+}
+
+.galerie img:hover{
+transform:scale(1.1);
+box-shadow:0 0 40px red;
+}
+
+/* FOOTER */
+footer{
+background:#111;
+padding:30px;
+text-align:center;
+font-size:20px;
+}
+
+/* PARTICULES */
+.particule{
+position:fixed;
+width:8px;
+height:8px;
+background:#e50914;
+border-radius:50%;
+animation:tombe 7s infinite;
+}
+
+@keyframes tombe{
+from{transform:translateY(-100px);}
+to{transform:translateY(100vh);}
+}
+.vid{
+ position: absolute
+}
+</style>
+
+</head>
+
+<body>
+
+  
+  <!-- VIDEO CINEMA -->
+    <!-- VIDEO CINEMA 
+/*<div id="videoCinema">
+
+  <video id="maVideo" controls>
+  <source src="c:\Users\Jacky\OneDrive\Images\ef7782ca86c2bca864176abfe6c40d5d_1781578006001.mp4" type="video/mp4">
+  </video>
+  
+  </div>-->
+
+<!-- INTRO -->
+<div class="intro">
+  <div class="netflix-logo">
+    <div class="n">N</div>
+    <div class="shine"></div>
+  </div>
+</div>
+
+<!-- SON -->
+<audio id="taDum" src="tadum.mp3"></audio>
+
+<header>
+  <div id="videoCinema" style="position: absolute;justify-content: center; display: none;align-items: center; background-repeat:repeat-x;" >
+
+    <video id="maVideo" controls>
+    <source src="video/v2.MOV">
+    </video>
+    
+    </div>
+
+<h1>🎬 Joyeux Anniversaire Christophe</h1>
+<p>Un nouvel épisode de ta vie commence...</p>
+
+<button class="btn" onclick="lancerVideo()">
+▶ Commencer la célébration
+</button>
+</header>
+
+<section>
+<h2 class="titre">À propos de Christophe</h2>
+<div class="card">
+<p>Christophe est une personne unique. Chaque année est une nouvelle saison.</p>
+</div>
+</section>
+
+<section>
+
+  <h2 class="titre">📅 Informations de la fête</h2>
+  
+  <div class="card info-fete">
+  
+  <p>
+  🎬 Thème :  Birthday
+  </p>
+  
+  <p>
+  👔 Hommes : Tenue blanche
+  </p>
+  
+  <p>
+  👗 Femmes : Tenue orange
+  </p>
+  
+  <p>
+  📅 Date : 29 Juin 2026
+  </p>
+  
+  <p>
+  ⏰ Heure : 17h30
+  </p>
+  
+  <p>
+  📍 Douala : restaurant la bonjournaise( station MRS derriere l'ecole public deido)
+  </p>
+  
+  
+  <div id="compteur"></div>
+  
+  </div>
+  
+  </section>
+
+<section>
+
+  <section>
+
+    <h2 class="titre">
+      📸 souvenirs
+    </h2>
+    
+    
+    <div class="lieux-container">
+    
+    
+    <div class="lieu-card">
+    
+    <div class="numero">
+    40
+    </div>
+    
+    <img src="image/image8.JPG">
+    
+    <div class="lieu-info">
+    
+    <h3>gateau</h3>
+    
+    <p>
+    40 ans
+    </p>
+    
+    
+    
+    </div>
+    
+    </div>
+    
+    
+    
+    <div class="lieu-card">
+    
+    <div class="numero">
+    41
+    </div>
+    
+    <img src="image/image8.JPG">
+    
+    <div class="lieu-info">
+    
+    <h3>gateau</h3>
+    
+    <p>
+    41 ans
+    </p>
+    
+    
+
+    
+    </div>
+    
+    </div>
+    
+    
+    
+    <div class="lieu-card">
+    
+    <div class="numero">
+    ?
+    </div>
+    
+    <img src="c:\Users\Jacky\Downloads\ChatGPT Image 19 juin 2026, 05 h 03 min 59 s.png">
+    
+    <div class="lieu-info">
+    
+    <h3>gateau</h3>
+    
+    <p>
+    on attent encore
+    </p>
+    
+    
+    
+    </div>
+    
+    </div>
+    
+    
+    </div>
+    
+    </section>
+    <h2 class="titre">
+      🏛️ Lieux de réception
+    </h2>
+    
+    
+    <div class="lieux-container">
+    
+    
+    <div class="lieu-card">
+    
+    <div class="numero">
+    1
+    </div>
+    
+    <img src="image/image2.jpg">
+    
+    <div class="lieu-info">
+    
+    <h3>evenement</h3>
+    
+    <p>
+    Lieu  de la ceremonie
+    </p>
+    
+    <a class="itineraire" href="#">
+    Itinéraire ici
+    </a>
+    
+    </div>
+    
+    </div>
+    
+    
+    
+    <div class="lieu-card">
+    
+    <div class="numero">
+    2
+    </div>
+    
+    <img src="image/IMG_E2325.JPG">
+    
+    <div class="lieu-info">
+    
+    <h3> degustation </h3>
+    
+    <p>
+    Moment de partage et degustation
+    </p>
+    
+    <a class="itineraire" href="#">
+    Itinéraire ici
+    </a>
+    
+    </div>
+    
+    </div>
+    
+    
+    
+    <div class="lieu-card">
+    
+    <div class="numero">
+    3
+    </div>
+    
+    <img src="image/IMG_E2331.JPG">
+    
+    <div class="lieu-info">
+    
+    <h3>Réception</h3>
+    
+    <p>
+    lieux de  reception
+    </p>
+    
+    <a class="itineraire" href="#">
+    Itinéraire ici
+    </a>
+    
+    </div>
+    
+    </div>
+    
+    
+    </div>
+    
+    </section>
+
+<section>
+<h2 class="titre">💌 Message spécial</h2>
+<div class="card">
+<p>Joyeux anniversaire Christophe 🎂</p>
+</div>
+</section>
+
+<footer>
+Netflix Birthday Experience<br>
+Créé spécialement pour Christophe ❤️
+</footer>
+<a href="c:\Users\Jacky\OneDrive\Desktop\debut html\envellope.html"></a>
+
+<script>
+
+/* compteur */
+let date = new Date("June 29, 2026 18:00:00").getTime();
+
+setInterval(()=>{
+let now = new Date().getTime();
+let distance = date - now;
+
+let days = Math.floor(distance/(1000*60*60*24));
+let hours = Math.floor((distance%(1000*60*60*24))/(1000*60*60));
+let minutes = Math.floor((distance%(1000*60*60))/(1000*60));
+let seconds = Math.floor((distance%(1000*60))/1000);
+
+document.getElementById("compteur").innerHTML =
+"⏳ "+days+" jours "+hours+"h "+minutes+"min "+seconds+"s";
+
+},1000);
+
+/* SON TA-DUM SYNCHRONISÉ */
+window.addEventListener("load", ()=>{
+const sound = document.getElementById("taDum");
+
+setTimeout(()=>{
+sound.volume = 1;
+sound.play().catch(()=>{
+document.body.addEventListener("click", ()=>{
+sound.play();
+},{once:true});
+});
+},1200);
+});
+
+/* bouton de lancement */
+function lancerVideo(){
+
+let videoBox=document.getElementById("videoCinema");
+
+let video=document.getElementById("maVideo");
+                                              
+
+videoBox.style.display="block";
+
+
+video.play();
+
+
+/* video.requestFullscreen();  */
+
+}
+</script>
+
+
+
+</body>
+</html>
